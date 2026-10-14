@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Surprise</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, #180b13, #50172e, #963b59);
+    color: white;
+    overflow-x: hidden;
+}
+
+.page {
+    min-height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 18px;
+    text-align: center;
+    animation: fadeIn 0.7s ease;
+}
+
+.page.active {
+    display: flex;
+}
+
+.container {
+    width: 100%;
+    max-width: 460px;
+}
+
+/* FIRST PAGE: THE SURPRISE */
+
+.mystery-card {
+    padding: 40px 24px;
+    border: 1px solid #ffffff25;
+    border-radius: 22px;
+    background: #ffffff08;
+    box-shadow: 0 15px 40px #00000030;
+}
+
+.symbol {
+    font-size: 42px;
+    color: #f4dce5;
+    margin-bottom: 30px;
+    animation: glow 2.5s infinite;
+}
+
+.label {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: #e7b5c7;
+}
+
+h1 {
+    font-size: 42px;
+    font-weight: normal;
+    margin: 22px 0;
+}
+
+.intro {
+    color: #f1dce4;
+    font-size: 15px;
+    line-height: 2;
+}
+
+.line {
+    width: 45px;
+    height: 1px;
+    background: #e7b5c7;
+    margin: 28px auto;
+}
+
+.hint {
+    color: #d9b2c0;
+    font-size: 13px;
+    margin-bottom: 26px;
+}
+
+button {
+    border: none;
+    border-radius: 30px;
+    padding: 15px 25px;
+    background: #fff5f8;
+    color: #792443;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.25s;
+    box-shadow: 0 5px 20px #00000025;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+.footer {
+    margin-top: 30px;
+    color: #cba0b1;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+
+.letter {
+    padding: 30px 23px;
+    background: #fff8f5;
+    color: #542436;
+    border-radius: 18px;
+    box-shadow: 0 10px 40px #20000c66;
+    text-align: left;
+    line-height: 1.85;
+}
+
+.letter h2 {
+    text-align: center;
+    color: #b52e59;
+    font-size: 26px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.letter p {
+    font-size: 15px;
+}
+
+.signature {
+    text-align: right;
+    color: #b52e59;
+    font-style: italic;
+    font-size: 18px !important;
+    margin-top: 30px;
+}
+
+.back {
+    margin-top: 22px;
+}
+
+/* FLOATING HEARTS */
+
+.floating-heart {
+    position: fixed;
+    bottom: -35px;
+    color: #ffc5d6;
+    pointer-events: none;
+    opacity: 0.75;
+    animation: floatUp linear forwards;
+    z-index: 10;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        opacity: 0.65;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-115vh) rotate(35deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="page active" id="page1">
+    <div class="container">
+        <div class="mystery-card">
+
+            <div class="symbol">✦</div>
+
+            <p class="label">A LITTLE SOMETHING</p>
+
+
+<h1>Hey, You.</h1>
+
+<p class="intro">
+    pls sainyo lang po<br>
+    sana pag enopen mo ikw lang mag-isa
+</p>
+
+
+            <div class="line"></div>
+
+
+            <button onclick="openLetter()">press here
+                
+            </button>
+
+        </div>
+    </div>
+</section>
+
+<section class="page" id="page2">
+    <div class="container">
+
+        <div class="letter">
+
+            <h2>HI Precious</h2>
+
+            <p>good morning, afternoon or night</p>
+
+            <p>
+                Alam mo na ata to pero sasabihin ko pa rin sayo May gusto ako sayo or crush kita WHAHAHA
+            </p>
+
+            <p>
+                Na realize ko lang to noong Grade 11 na tayo kasi akala ko noong una kaibigan lang talaga yung tingin ko sayo First time ko rin kasi magkaroon ng kaibigang babae kaya hindi ko agad na realize na may gusto na pala ako sayo
+            </p>
+
+            <p>
+                PS. Sana huwag mong sabihin sa iba HAHAHAHA
+            </p>
+
+            <p class="signature">
+                NO NEED FOR REPLY<br>
+               
+            </p>
+
+        </div>
+
+        <button class="back" onclick="goBack()">
+            ← Back to the Beginning
+        </button>
+
+    </div>
+</section>
+
+<script>
+function openLetter() {
+    document.getElementById("page1").classList.remove("active");
+    document.getElementById("page2").classList.add("active");
+
+    window.scrollTo(0, 0);
+}
+
+function goBack() {
+    document.getElementById("page2").classList.remove("active");
+    document.getElementById("page1").classList.add("active");
+
+    window.scrollTo(0, 0);
+}
+
+function createHeart() {
+    if (!document.getElementById("page2").classList.contains("active")) {
+        return;
+    }
+
+    const heart = document.createElement("div");
+
+    heart.className = "floating-heart";
+    heart.textContent = Math.random() > 0.5 ? "♥" : "♡";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (5 + Math.random() * 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function() {
+        heart.remove();
+    }, 9500);
+}
+
+setInterval(createHeart, 700);
+</script>
+
+</body>
+</html>
